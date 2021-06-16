@@ -1,0 +1,15 @@
+<img src="assets/avatars/4040.png" class="push-left-sm" [matMenuTriggerFor]="userMenu" style="margin-top: 7px; cursor: pointer;">
+<mat-menu #userMenu="matMenu">
+  <mat-list>
+    <mat-list-item>
+      <img mat-list-avatar src="assets/avatars/4040.png">
+      <h4 matLine> {{identityName}} </h4>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <mat-nav-list>
+    <a mat-list-item (click)="doLogout()">
+      <h4 matLine>Exit</h4>
+    </a>
+  </mat-nav-list>
+</mat-menu>

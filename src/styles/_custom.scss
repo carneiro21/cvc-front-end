@@ -1,0 +1,449 @@
+//Patelas de cores
+$mat-je-primary: (50: #e0f2f1, 100: #b2dfdb, 200: #80cbc4, 300: #4db6ac, 400: #26a69a, 500: #009999, 600: #00897b, 700: #00796b, 800: #00695c, 900: #004d40, A100: #a7ffeb, A200: #64ffda, A400: #1de9b6, A700: #00bfa5, contrast: (50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: $black-87-opacity, A400: $black-87-opacity, A700: $black-87-opacity));
+$mat-je-dark-primary: (50: #e0f2f1, 100: #b2dfdb, 200: #80cbc4, 300: #4db6ac, 400: #26a69a, 500: #009999, 600: #00897b, 700: #00796b, 800: #00695c, 900: #004d40, A100: #a7ffeb, A200: #64ffda, A400: #1de9b6, A700: #00bfa5, contrast: (50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: $black-87-opacity, A400: $black-87-opacity, A700: $black-87-opacity));
+$mat-je-warn: (50: #ffebee, 100: #ffcdd2, 200: #ef9a9a, 300: #e57373, 400: #ef5350, 500: #D9534F, 600: #e53935, 700: #d32f2f, 800: #c62828, 900: #b71c1c, A100: #ff8a80, A200: #ff5252, A400: #ff1744, A700: #d50000, contrast: (50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white));
+$mat-je-accent: (50: #fafafa, 100: #f5f5f5, 200: #eeeeee, 300: #e0e0e0, 400: #bdbdbd, 500: #e6e6e6, 600: #757575, 700: #616161, 800: #424242, 900: #212121, A100: #ffffff, A200: #eeeeee, A400: #bdbdbd, A700: #616161, contrast: (50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: $black-87-opacity, 600: $white-87-opacity, 700: $white-87-opacity, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: $black-87-opacity, A400: $black-87-opacity, A700: $white-87-opacity));
+$mat-je-green: (50: #e8f5e9, 100: #c8e6c9, 200: #a5d6a7, 300: #81c784, 400: #66bb6a, 500: #006666, 600: #43a047, 700: #388e3c, 800: #2e7d32, 900: #1b5e20, A100: #b9f6ca, A200: #69f0ae, A400: #00e676, A700: #00c853, contrast: (50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: $black-87-opacity, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: $black-87-opacity, A400: $black-87-opacity, A700: $black-87-opacity));
+$primary-text-color-je: #474B4D;
+//desabilitando as sombras
+%retirar-sombra {
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+%retirar-radius {
+    border-radius: 0 !important;
+}
+
+.mat-fab,
+.mat-mini-fab,
+.mat-icon-button {
+    @extend %retirar-sombra;
+}
+
+.mat-card {
+    border: 2px solid #D8E3EA;
+}
+
+.mat-card,
+.mat-button,
+.mat-raised-button,
+.mat-button-toggle-group,
+.mat-button-toggle {
+    @extend %retirar-sombra;
+    @extend %retirar-radius;
+    &:focus,
+    &:hover {
+        @extend %retirar-sombra;
+        @extend %retirar-radius;
+    }
+}
+
+$success: #5cb85c;
+$info: #5bc0de;
+$warning: #f0ad4e;
+.mat-raised-button {
+    &.mat-success {
+        color: #fff;
+        background-color: $success;
+    }
+    &.mat-info {
+        color: #fff;
+        background-color: $info;
+    }
+    &.mat-warning {
+        color: #fff;
+        background-color: $warning;
+    }
+}
+
+.mat-button {
+    &.mat-success {
+        color: $success;
+        &:hover,
+        &:focus {
+            background: rgba($success, 0.12);
+        }
+    }
+    &.mat-info {
+        color: $info;
+        &:hover,
+        &:focus {
+            background: rgba($info, 0.12);
+            opacity: 0.12;
+        }
+    }
+    &.mat-warning {
+        color: $warning;
+        &:hover,
+        &:focus {
+            background: rgba($warning, 0.12);
+            opacity: 0.12;
+        }
+    }
+}
+
+.loader span {
+    background: #009999 !important;
+}
+
+.logo {
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .logo-text {
+        text-transform: uppercase;
+        color: $primary-text-color-je;
+        font-weight: bold;
+        line-height: 2;
+    }
+}
+
+.logo-sigla {
+    text-decoration: none;
+    .logo-sigla-dark {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5;
+        color: #fff;
+    }
+    .logo-sigla-light {
+        @extend .logo-sigla-dark;
+        color: #474B4D;
+    }
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap; // padding: .75rem 1rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 10px;
+    list-style: none; // background-color: #e9ecef;
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+        color: $primary-text-color-je;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+    .material-icons {
+        font-size: 19px;
+    }
+}
+
+.breadcrumb-item {
+    +.breadcrumb-item {
+        padding-left: 0.5rem;
+        &::before {
+            display: inline-block;
+            padding-right: .5rem;
+            color: lighten($primary-text-color-je, 15);
+            content: "/";
+        }
+        &:hover::before {
+            text-decoration: underline;
+            text-decoration: none;
+        }
+    }
+    &.active {
+        color: lighten($primary-text-color-je, 100);
+    }
+}
+
+.help-icon {
+    @extend .breadcrumb;
+    padding-right: 10px;
+    padding-left: 0;
+    float: right;
+}
+
+.help-icon-item {
+    @extend .breadcrumb-item;
+    +.help-icon-item {
+        &::before {
+            content: "";
+        }
+    }
+}
+
+.border-bottom {
+    border-bottom: 1px solid #474B4D;
+}
+
+// .wrapper {
+//     padding: 15px 40px !important;
+//     mat-card {
+//         margin: 0 !important;
+//         padding: 0!important;
+//     }
+// }
+%mat-card-title {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-card-title-primary {
+    // padding-top: 0!important;
+    // margin-bottom: 0;
+    @extend %mat-card-title;
+    color: map-get($mat-je-primary, 500);
+}
+
+.mat-card-title-warn {
+    // padding-top: 0!important;
+    // margin-bottom: 0;
+    @extend %mat-card-title;
+    color: map-get($mat-je-warn, 500);
+}
+
+.mat-card-title-accent {
+    // padding-top: 0!important;
+    // margin-bottom: 0;
+    @extend %mat-card-title;
+    color: map-get($mat-je-accent, 500);
+}
+
+.initial {
+    display: table;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    h1 {
+        position: absolute;
+        top: 50%;
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+body.tse-site-com-topo footer.version {
+    bottom: 40px;
+}
+
+.main-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 74px);
+}
+
+//je menu
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px) !default;
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px) !default;
+@mixin make-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: $grid-gutter-width / -2;
+    margin-left: $grid-gutter-width / -2;
+}
+
+@mixin make-container {
+    width: 100%;
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin make-col-ready {
+    position: relative;
+    // Prevent columns from becoming too narrow when at smaller grid tiers by
+    // always setting `width: 100%;`. This works because we use `flex` values
+    // later on to override this initial width.
+    width: 100%;
+    min-height: 1px; // Prevent collapsing
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    // Add a `max-width` to ensure content within each column does not blow out
+    // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+    // do not appear to require this.
+    max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-left: if($num==0, 0, percentage($num));
+}
+
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint,
+    $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+%grid {
+    @include make-col-ready;
+    @include media-breakpoint-up(xs) {
+        @include make-col(12);
+    }
+    @include media-breakpoint-up(sm) {
+        @include make-col(12);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(4);
+    }
+}
+
+%link {
+    color: #fff;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color: rgba(#fff, 0.8);
+        text-decoration: underline;
+    }
+}
+
+@at-root {
+    @-ms-viewport {
+        width: device-width;
+    } // stylelint-disable-line at-rule-no-vendor-prefix
+}
+
+html {
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.je-topo {
+    min-height: 50px;
+    background: url('/assets/je/topo-pattern.png');
+    background-color: #256C72;
+    background-repeat: repeat-x;
+    z-index: 9999;
+}
+
+.je-link {
+    @extend %grid;
+    padding-top: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background: url('/assets/je/topo-bg.png');
+    background-repeat: no-repeat;
+    background-position: center 0;
+    &-item {
+        @extend %link;
+        padding: 0 20px;
+        font-size: .75rem;
+    }
+    @include media-breakpoint-up(xs) {
+        display: none;
+    }
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+}
+
+.tse-link {
+    @extend %grid;
+    font-family: 'Arial', Helvetica, sans-serif;
+    padding-top: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    &-item {
+        @extend %link;
+    }
+    @include media-breakpoint-up(xs) {
+        text-align: center;
+    }
+    @include media-breakpoint-up(lg) {
+        text-align: left;
+    }
+}
+
+.acessibilidade-link {
+    @extend %grid;
+    text-align: right;
+    &-item {
+        @extend %link;
+        font-size: .75rem;
+        text-transform: uppercase;
+        font-weight: 100;
+    }
+    @include media-breakpoint-up(xs) {
+        display: none;
+    }
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+}
+
+.je-conter {
+    @include make-container;
+    @include make-container-max-widths;
+}
+
+.je-row {
+    @include make-row;
+}
+
+.dark-theme {
+    .je-link,
+    .je-topo {
+        background-image: none;
+        background-color: #424242;
+    }
+    .logo-text,
+    .material-icons.mat-dark,
+    .mat-card-title-primary,
+    .mat-card-title-warn,
+    >mat-card-title,
+    >.primary-color {
+        color: #fff !important;
+    }
+    .logo-text {
+        color: #474b4d;
+    }
+    .breadcrumb {
+        a {
+            color: lighten($primary-text-color-je, 20);
+        }
+        &.active {
+            color: lighten($primary-text-color-je, 0);
+        }
+    }
+}
+
+.mat-checkbox-checked,
+.mat-checkbox-indeterminate {
+    &.mat-accent .mat-checkbox-background {
+        background-color: map-get($mat-je-primary, 500)!important;
+    }
+}

@@ -1,0 +1,9 @@
+<div fxLayout="row" class="je-topo">
+    <div class="je-conter">
+        <div class="je-row">
+            <div *ngFor="let item of dados" class="{{item.classe}}">
+                <a href="{{item.link}}" title="{{item?.title}}" class="{{item.classe}}-item" target="_blank">{{item.nome}}</a>
+            </div>
+        </div>
+    </div>
+</div>

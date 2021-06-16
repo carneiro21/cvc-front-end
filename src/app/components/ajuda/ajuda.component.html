@@ -1,0 +1,21 @@
+<app-custom-breadcrumb></app-custom-breadcrumb>
+<section>
+  <article>
+    <div fxLayout="column" fxLayout.gt-sm="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-sm="100">
+        <mat-card>
+          <mat-card-title>{{ajuda.titulo}}</mat-card-title>
+          <mat-card-content>
+            {{ajuda.conteudo}}
+            <div style="text-align: right;">
+              <button mat-raised-button color="primary" (click)="voltar()" id="btnVoltar">
+                <mat-icon>arrow_back</mat-icon>
+                Voltar
+              </button>                
+            </div>
+          </mat-card-content>            
+        </mat-card>
+      </div>
+    </div>
+  </article>
+</section>

@@ -1,0 +1,14 @@
+<app-sidemenu>
+  <li class="search-box">
+    <mat-form-field>
+      <input matInput placeholder="Pesquisar" [(ngModel)]="searchOption" id="inputMenuPesquisar">
+    </mat-form-field>
+  </li>
+  <!-- Menu dinamico -->
+  <app-sideitem *ngFor="let modulo of menuItens | searchmenu : searchOption" title="{{modulo.title}}" [routerLinkActiveOptions]="{exact: true}" [routerLinkUrl]="modulo.router" id="menu-{{modulo.router}}">
+    <mat-icon>{{modulo.icon}}</mat-icon>
+  </app-sideitem>
+  <app-sideitem title="Exit"  id="menu-logout">
+    <mat-icon>cancel</mat-icon>
+  </app-sideitem>
+</app-sidemenu>

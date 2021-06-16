@@ -1,0 +1,41 @@
+html {
+  body {
+    .text-center {
+      text-align: center;
+    }
+    .text-lower {
+      text-transform: lowercase;
+    }
+    .text-right {
+      text-align: right;
+    }
+    .mat-card {
+      .mat-card-title {
+        padding-top: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .mat-card-content {
+        padding: 16px;
+      }
+    }
+    .pad {
+      padding: 16px;
+    }
+    .pad-right-xl {
+      padding-right: 48px;
+    }
+    .push-left-sm {
+      margin-left: 8px;
+    }
+  }
+}
+
+mat-toolbar [mat-icon-button] {
+  margin: 0 6px;
+}
+
+mat-icon.material-icons, mat-icon.material-icons.mat-icon {
+  width: 1em;
+  height: 1em;
+}

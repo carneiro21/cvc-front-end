@@ -1,0 +1,39 @@
+:root {
+    // fonts
+    --FONT-REGULAR: 'futura-book', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+    --FONT-LT: 'futura-lt-book', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+    --FONT-BOLD: 'futura-bold', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+  
+    // cores
+    // paleta primaria
+    --COLOR-AZUL: rgba(0, 93, 169, 1);
+    --COLOR-TURQUESA: rgba(84, 187, 171, 1);
+    --COLOR-LARANJA: rgba(243, 146, 0, 1);
+    --COLOR-GELO: rgba(208, 224, 227, 1);
+  
+    // paleta secundaria
+    --COLOR-CEU: rgba(0, 181, 229, 1);
+    --COLOR-UVA: rgba(178, 111, 155, 1);
+    --COLOR-LIMAO: rgba(175, 202, 11, 1);
+    --COLOR-TANGERINA: rgba(249, 176, 1);
+    --COLOR-GOIABA: rgba(239, 118, 94, 1);
+  
+    // paleta auxiliar
+    --COLOR-BLUE-DARK: rgba(58, 72, 89, 1);
+    --COLOR-BLUE-LIGHT: rgba(41, 192, 179, 1);
+    --COLOR-GREY-LIGHT: rgba(179, 199, 203, 1);
+    --COLOR-GREY-DARK: rgba(154, 172, 175, 1);
+    --COLOR-GREEN: rgba(14, 118, 57, 1);
+    --COLOR-RED: rgba(245, 28, 31, 1);
+  
+    --TRANSITION: all 200ms;
+    --BORDER: 1px solid rgba(0, 0, 0, 0.12);
+    --SHADOW: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  

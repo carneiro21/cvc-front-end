@@ -1,0 +1,8 @@
+<h4 mat-dialog-title [innerHTML]="data.title" id="titleDialog"></h4>
+<div mat-dialog-content [innerHTML]="data.text" id="contentDialog"></div>
+<div mat-dialog-actions class="dialog-example-buttons">
+  <div style="width: 100%; text-align: right;">
+    <button mat-button (click)="closeDialog('cancel')" name="btnDialogCancelar" id="btnDialogCancelar">Cancelar</button>
+    <button mat-button (click)="closeDialog('ok')" name="btnDialogOk" id="btnDialogOk">OK</button>
+  </div>
+</div>

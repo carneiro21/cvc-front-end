@@ -1,0 +1,44 @@
+<app-je-menu></app-je-menu>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav  [opened]="sideNavOpened" class="left-sidenav" (open)="resizeService.resizeInformer$.next()" (close)="resizeService.resizeInformer$.next()">
+    <header class="sidenav-header" fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-icon-button (click)="sidenav.toggle()" id="btnOcultarMenuSeta">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div fxFlex class="text-center pad-right-xl">
+        <a class="logo-sigla" routerLink="/" id="linkLogo">
+          <h2 *ngIf="darkTheme; else darkLogo" class="logo-sigla-dark">{{appAbbr}}</h2>
+          <ng-template #darkLogo>
+            <h2 class="logo-sigla-light">{{appAbbr}}</h2>
+          </ng-template>
+        </a>
+      </div>
+    </header>
+    <perfect-scrollbar class="perfect-scrollbar">
+      <app-menu-public></app-menu-public>
+    </perfect-scrollbar>
+    <footer class="version secondary-text-color">
+      <mat-divider></mat-divider>
+      <div class="pad" fxLayoutAlign="space-between center">
+        <span class="mat-subhead">Contrast</span>
+        <mat-slide-toggle [(ngModel)]="darkTheme"></mat-slide-toggle>
+      </div>
+    </footer>
+  </mat-sidenav>    
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()" id="btnOcultarMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a fxHide="true" fxHide.gt-sm="false" routerLink="/" class="logo" id="linkLogoTitle">
+        <h3 class="h3 font-w-bold-im logo-text">{{appTitle}}</h3>
+      </a>
+      <span fxFlex></span>
+      <app-toolbar-public></app-toolbar-public>
+    </mat-toolbar>
+    <div class="wrapper" [class.wrapper-box]="boxedLayout">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-je-rodape></app-je-rodape>

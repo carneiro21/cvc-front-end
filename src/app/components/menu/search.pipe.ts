@@ -1,0 +1,26 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'searchmenu'
+})
+export class SearchPipe implements PipeTransform {
+
+  transform(items: any[], searchText: string): any[] {
+    if (!items) {
+      return [];
+    }
+    if (!searchText) {
+      return items;
+    }
+    searchText = searchText.toLowerCase();
+
+    return items.filter(it => {
+      for (const k in it.itens) {
+        if (it.itens[k].title.toLowerCase().indexOf(searchText) > -1) {
+          return it.itens[k];
+        }
+      }
+      return it.title.toLowerCase().indexOf(searchText) > -1;
+    });
+  }
+}
