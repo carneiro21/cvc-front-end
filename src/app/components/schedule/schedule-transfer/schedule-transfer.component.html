@@ -1,1 +1,108 @@
-<p>schedule-transfer works!</p>
+<app-custom-breadcrumb [title]="title"></app-custom-breadcrumb>
+<section id="body-section">
+    <article>
+        <div fxLayout="column" fxLayout.gt-sm="row">
+            <div fxFlex="1 0 auto" fxFlex.gt-sm="100">
+                <mat-card>
+                    <mat-card-content>
+                        <form [formGroup]="form" novalidate (submit)="onSubmit()">
+                            <div fxLayout="column">
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Origin Account:</b>
+                                    </div>
+                                    <div fxFlex="40">
+                                        <b>Destination Account:</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <mat-form-field fxFlex="40">
+                                        <mat-label>Origin Account</mat-label>
+                                        <input matInput type="text" formControlName="originAccount" id="originAccount">
+                                        <mat-error *ngIf="originAccount.hasError('required')">
+                                            Required Field.
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field fxFlex="40">
+                                        <mat-label>Destination Account</mat-label>
+                                        <input matInput type="text" formControlName="destinationAccount" id="destinationAccount">
+                                        <mat-error *ngIf="destinationAccount.hasError('required')">
+                                            Required Field.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <br>
+
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Transfer Data</b>
+                                    </div>
+                                    <div fxFlex="40">
+                                        <b>Scheduling Date</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="100" fxLayoutAlign="space-between start">
+                                        <mat-form-field fxFlex="40">
+                                            <mat-label>Transfer Data</mat-label>
+                                            <input matInput [matDatepicker]="dtTransferData" [disabled]="true"
+                                             id="transferData" formControlName="transferData">
+                                            <mat-datepicker-toggle [for]="dtTransferData" matSuffix></mat-datepicker-toggle>
+                                            <mat-datepicker #dtTransferData></mat-datepicker>
+                                            <mat-error *ngIf="transferData.hasError('required')">
+                                                Required Field.
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field fxFlex="40" class="margin">
+                                            <mat-label>Scheduling Date</mat-label>
+                                            <input matInput [matDatepicker]="dtSchedulingDate"
+                                             id="schedulingDate" formControlName="schedulingDate">
+                                            <mat-datepicker-toggle [for]="dtSchedulingDate" matSuffix></mat-datepicker-toggle>
+                                            <mat-datepicker #dtSchedulingDate></mat-datepicker>
+                                            <mat-error *ngIf="schedulingDate.hasError('required')">
+                                                Required Field.
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Transfer Value:</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <mat-form-field fxFlex="40">
+                                        <mat-label>Transfer Value</mat-label>
+                                        <input matInput type="text" formControlName="transferValue" id="transferValue" currencyMask>
+                                        <mat-error *ngIf="transferValue.hasError('required')">
+                                            Required Field.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start" style="margin-top: 30px;">
+                                    <div fxFlex="100" style="text-align: right;"> 
+                                        <button mat-raised-button type="button" class="button" color="primary" (click)="clearForm();">
+                                          <mat-icon>clear</mat-icon>
+                                          Clear
+                                        </button>
+                                        &nbsp; 
+                                        <button mat-raised-button type="submit" class="button" color="primary" [disabled]="!form.valid">
+                                          <mat-icon>done</mat-icon>
+                                          Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,34 @@
+.container-table {
+    background-color: #fff;
+    border: var(--BORDER);
+    box-shadow: var(--SHADOW);
+  }
+  
+  
+  table {
+    width: 100%;
+  }
+  
+  td {
+    font-size: small;
+  }
+  
+  tr.zebrar:hover {
+    background: whitesmoke;
+  }
+  
+  tr.zebrar:active {
+    background: #efefef;
+  }  
+  
+  
+  .link {
+    color: #009999;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  
+  .link-1 {
+    color: #009999;
+    cursor: pointer;
+  }

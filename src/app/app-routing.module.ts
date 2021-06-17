@@ -6,6 +6,7 @@ const routes: Routes = [
     {
       path: 'main', component: MainComponent, children: [
         {path: 'home', loadChildren: () => import('./components/initial/initial.module').then((m) => m.InicialModule), data: {breadcrumb: 'Home'}},
+        {path: 'schedule', loadChildren: () => import('./components/schedule/schedule.module').then((m) => m.ScheduleModule), data: {breadcrumb: 'Schedule'}},
         {path: '**', redirectTo: 'home/index', pathMatch: 'prefix'}
       ], data: {breadcrumb: 'CVC'}
       

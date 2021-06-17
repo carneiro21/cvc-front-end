@@ -1,1 +1,207 @@
-<p>search-schedules works!</p>
+<app-custom-breadcrumb title="Search Transfer"></app-custom-breadcrumb>
+<section id="body-section">
+    <article>
+        <div fxLayout="column" fxLayout.gt-sm="row">
+            <div fxFlex="1 0 auto" fxFlex.gt-sm="100">
+                <mat-card>
+                    <mat-card-content>
+                        <form [formGroup]="form" novalidate (submit)="onSubmit()">
+                            <div fxLayout="column">
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Origin Account:</b>
+                                    </div>
+                                    <div fxFlex="40">
+                                        <b>Destination Account:</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <mat-form-field fxFlex="40">
+                                        <mat-label>Origin Account</mat-label>
+                                        <input matInput type="text" formControlName="originAccount" id="originAccount">
+                                    </mat-form-field>
+                                    <mat-form-field fxFlex="40">
+                                        <mat-label>Destination Account</mat-label>
+                                        <input matInput type="text" formControlName="destinationAccount" id="destinationAccount">
+                                    </mat-form-field>
+                                </div>
+
+                                <br>
+
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Initial Transfer Data</b>
+                                    </div>
+                                    <div fxFlex="40">
+                                        <b>Final Transfer Data</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="100" fxLayoutAlign="space-between start">
+                                        <mat-form-field fxFlex="40">
+                                            <mat-label>Initial Transfer Data</mat-label>
+                                            <input matInput [matDatepicker]="dtTransferDataInit" [disabled]="true"
+                                             id="transferData" formControlName="transferDataInit">
+                                            <mat-datepicker-toggle [for]="dtTransferDataInit" matSuffix></mat-datepicker-toggle>
+                                            <mat-datepicker #dtTransferDataInit></mat-datepicker>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field fxFlex="40" class="margin">
+                                            <mat-label>Final Transfer Data</mat-label>
+                                            <input matInput [matDatepicker]="dtTransferDataFinal"
+                                             id="transferDataFinal" formControlName="transferDataFinal">
+                                            <mat-datepicker-toggle [for]="dtTransferDataFinal" matSuffix></mat-datepicker-toggle>
+                                            <mat-datepicker #dtTransferDataFinal></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Initial Scheduling Date</b>
+                                    </div>
+                                    <div fxFlex="40">
+                                        <b>Final Scheduling Date</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="100" fxLayoutAlign="space-between start">
+                                        <mat-form-field fxFlex="40">
+                                            <mat-label>Initial Scheduling Date</mat-label>
+                                            <input matInput [matDatepicker]="dtSchedulingDateInit" [disabled]="true"
+                                             id="schedulingDateInit" formControlName="schedulingDateInit">
+                                            <mat-datepicker-toggle [for]="dtSchedulingDateInit" matSuffix></mat-datepicker-toggle>
+                                            <mat-datepicker #dtSchedulingDateInit></mat-datepicker>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field fxFlex="40" class="margin">
+                                            <mat-label>Final Scheduling Date</mat-label>
+                                            <input matInput [matDatepicker]="dtSchedulingDateFinal"
+                                             id="schedulingDateFinal" formControlName="schedulingDateFinal">
+                                            <mat-datepicker-toggle [for]="dtSchedulingDateFinal" matSuffix></mat-datepicker-toggle>
+                                            <mat-datepicker #dtSchedulingDateFinal></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div fxLayout="row" fxLayoutAlign="space-between start">
+                                    <div fxFlex="40">
+                                        <b>Transfer Value:</b>
+                                    </div>
+                                </div>
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start">
+                                    <mat-form-field fxFlex="40">
+                                        <mat-label>Transfer Value</mat-label>
+                                        <input matInput type="text" formControlName="transferValue" id="transferValue" currencyMask>
+                                        <mat-error *ngIf="transferValue.hasError('required')">
+                                            Required Field.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between start" style="margin-top: 30px;">
+                                    <div fxFlex="100" style="text-align: right;"> 
+                                        <button mat-raised-button type="button" class="button" color="primary" (click)="clearForm();">
+                                          <mat-icon>clear</mat-icon>
+                                          Clear
+                                        </button>
+                                        &nbsp; 
+                                        <button mat-raised-button type="submit" class="button" color="primary" [disabled]="!form.valid">
+                                          <mat-icon>search</mat-icon>
+                                          Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                        <div class="container-table" *ngIf="listFinancialScheduleDTO$ | async as listFinancialScheduleDTO">
+                            <table mat-table [dataSource]="listFinancialScheduleDTO$" matSort (matSortChange)="onSort($event)">      
+                                <!-- Color Column -->
+                                <ng-container matColumnDef="originAccount">
+                                  <th mat-header-cell *matHeaderCellDef  mat-sort-header="originAccount">Origin Account </th>
+                                  <td mat-cell *matCellDef="let financialScheduleDTO">
+                                      <span>{{ financialScheduleDTO.originAccount }}</span>
+                                  </td>
+                                </ng-container>
+                            
+                                <!-- Color Column -->
+                                <ng-container matColumnDef="destinationAccount">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header="destinationAccount">Destination Account</th>
+                                  <td mat-cell *matCellDef="let financialScheduleDTO">
+                                    <span>{{ financialScheduleDTO.destinationAccount  }}</span>
+                                  </td>
+                                </ng-container>
+                            
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="transferValue">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header="transferValue">Transfer Value</th>
+                                  <td mat-cell *matCellDef="let financialScheduleDTO">
+                                    <span>{{ financialScheduleDTO.transferValue | currency }}</span>
+                                  </td>
+                                </ng-container>
+                            
+                                <!-- Color Column -->
+                                <ng-container matColumnDef="rate">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header="rate">Rate</th>
+                                  <td mat-cell *matCellDef="let financialScheduleDTO">
+                                    <span>{{financialScheduleDTO.rate | currency }}</span>
+                                  </td>
+                                </ng-container>
+                    
+                                <!-- Color Column -->
+                                <ng-container matColumnDef="transferData">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header="transferData">Transfer Data</th>
+                                  <td mat-cell *matCellDef="let financialScheduleDTO">
+                                    <span>{{ financialScheduleDTO.transferData | date }}</span>
+                                  </td>
+                                </ng-container>
+
+                                <!-- Color Column -->
+                                <ng-container matColumnDef="schedulingDate">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="schedulingDate">Scheduling Date</th>
+                                    <td mat-cell *matCellDef="let financialScheduleDTO">
+                                      <span>{{ financialScheduleDTO.schedulingDate | date }}</span>
+                                    </td>
+                                  </ng-container>
+                    
+                    
+                                <!-- Color Column -->
+                                <ng-container matColumnDef="actions">
+                                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                                    <td mat-cell *matCellDef="let financialSchedule">
+                                        <a class="link" matTooltip="Edit" (click)="editFinancialSchedule(financialSchedule.id);">
+                                            <mat-icon style="font-size: 1.5em;">edit</mat-icon>
+                                        </a>
+                                        <a class="link" matTooltip="Delete"
+                                            (click)="showModalDeleteFinancialSchedule(financialSchedule.id);">
+                                            <mat-icon style="font-size: 1.5em;">delete</mat-icon>
+                                        </a>                                      
+                                    </td>
+                                </ng-container>
+                    
+                                <tr mat-header-row
+                                  *matHeaderRowDef="['originAccount', 'destinationAccount', 'transferValue', 'rate', 'transferData', 'schedulingDate', 'actions']">
+                                </tr>
+                                <tr class="zebrar" mat-row
+                                  *matRowDef=" let row;columns: ['originAccount', 'destinationAccount', 'transferValue', 'rate', 'transferData', 'schedulingDate', 'actions']">
+                                </tr>
+                              </table>
+                              <mat-paginator
+                                [length]="filter.totalrecords"
+                                [pageIndex]="filter.pageNumber - 1"
+                                [pageSize]="filter.pageSize"
+                                [pageSizeOptions]="[10,50,100,500]"
+                                (page)="onPagination($event)"
+                                showFirstLastButtons
+                            ></mat-paginator>
+                            </div>
+                            <br>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </article>
+</section>
